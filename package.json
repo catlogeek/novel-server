@@ -1,6 +1,7 @@
 {
     "name": "laravel",
     "private": true,
+    "type": "module",
     "scripts": {
         "prepare": "husky install 2>/dev/null || true",
         "build": "vite build",
@@ -13,7 +14,7 @@
     },
     "dependencies": {
         "axios": "^1.1.2",
-        "laravel-vite-plugin": "^0.7.2",
+        "laravel-vite-plugin": "^0.7.5",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.1.14",
         "resolve-url-loader": "^5.0.0",
