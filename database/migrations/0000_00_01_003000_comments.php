@@ -17,6 +17,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Episode::class)->constrained()->cascadeOnDelete();
+
+            $table->text('body')->comment('本文');
+
             $table->timestamps();
         });
     }

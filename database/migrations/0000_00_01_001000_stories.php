@@ -16,6 +16,11 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
+
+            $table->text('title')->comment('タイトル');
+            $table->unsignedSmallInteger('Genre')->index()->comment('ジャンル');
+            $table->text('catchphrase')->nullable()->comment('キャッチフレーズ');
+            $table->text('introduction')->nullable()->comment('紹介文');
         });
     }
 

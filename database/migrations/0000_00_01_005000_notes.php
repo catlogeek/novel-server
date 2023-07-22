@@ -15,6 +15,10 @@ return new class extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+
+            $table->text('title')->comment('タイトル');
+            $table->text('body')->comment('本文');
+
             $table->timestamps();
         });
     }

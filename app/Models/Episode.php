@@ -13,10 +13,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @property string $id
  * @property string $story_id
+ * @property string $title タイトル
+ * @property string $body 本文
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
  * @property-read \App\Models\Story $story
+ * @method static \Database\Factories\EpisodeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Episode newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Episode newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Episode query()

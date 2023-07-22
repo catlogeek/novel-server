@@ -15,6 +15,10 @@ return new class extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignIdFor(Story::class)->constrained()->cascadeOnDelete();
+
+            $table->text('title')->comment('タイトル');
+            $table->text('body')->comment('本文');
+
             $table->timestamps();
         });
     }

@@ -3,6 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\User;
+use Database\Seeders\Development\CommentSeeder;
+use Database\Seeders\Development\EpisodeSeeder;
+use Database\Seeders\Development\NoteSeeder;
+use Database\Seeders\Development\ReviewSeeder;
+use Database\Seeders\Development\StorySeeder;
+use Database\Seeders\Development\UserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +20,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        fake()->seed(41);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            // 必ず最初
+            UserSeeder::class,
+
+            // Userに紐づく
+            StorySeeder::class,
+            NoteSeeder::class,
+
+            // Storyに紐づく
+            EpisodeSeeder::class,
+            ReviewSeeder::class,
+
+            // Episodeに紐づく
+            CommentSeeder::class,
+        ]);
     }
 }
