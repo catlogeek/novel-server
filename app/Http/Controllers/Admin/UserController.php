@@ -10,8 +10,10 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View
     {
+        return view('admin.users.index', [
+        ]);
     }
 
     /**
