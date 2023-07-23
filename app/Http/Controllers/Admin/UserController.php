@@ -19,7 +19,7 @@ class UserController extends Controller
             ->latest('updated_at')
             ->paginate(self::ITEMS_PER_PAGE);
 
-        return view('admin.users.index', [
+        return view('admin.user.index', [
             'items' => $items,
         ]);
     }
@@ -32,7 +32,7 @@ class UserController extends Controller
         $user = (new User())
             ->fill($request->old());
 
-        return view('admin.users.create', [
+        return view('admin.user.create', [
             'user' => $user,
         ]);
     }
@@ -56,7 +56,7 @@ class UserController extends Controller
         });
 
         return redirect()
-            ->route('admin.users.show', $user)
+            ->route('admin.user.show', $user)
             ->with('success', __('messages.success.store'));
     }
 
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function show(User $user): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
     {
-        return view('admin.users.show', [
+        return view('admin.user.show', [
             'user' => $user,
         ]);
     }
@@ -75,7 +75,7 @@ class UserController extends Controller
      */
     public function edit(Request $request, User $user): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
     {
-        return view('admin.users.edit', [
+        return view('admin.user.edit', [
             'user' => $user,
         ]);
     }
@@ -95,7 +95,7 @@ class UserController extends Controller
         });
 
         return redirect()
-            ->route('admin.users.show', $user)
+            ->route('admin.user.show', $user)
             ->with('success', __('messages.success.update'));
     }
 
@@ -107,7 +107,7 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()
-            ->route('admin.users.index')
+            ->route('admin.user.index')
             ->with('success', __('messages.success.destroy'));
     }
 }

@@ -25,7 +25,7 @@
 
   <!-- Nav Item - Charts -->
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.users.index') }}">
+    <a class="nav-link" href="{{ route('admin.user.index') }}">
       <i class="fas fa-users"></i>
       <span>Users</span></a>
   </li>

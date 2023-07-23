@@ -10,17 +10,17 @@
     @slot('header')
       <div class="d-flex align-items-center gap-2">
         <span class="text-white">{{ __('messages.headline.show') }}</span>
-        <a class="ms-auto btn btn-sm btn-secondary" href="{{ route('admin.users.index') }}">{{ __('messages.headline.index') }}</a>
-        <a class="btn btn-sm btn-warning" href="{{ route('admin.users.edit', $user) }}">{{ __('messages.headline.edit') }}</a>
+        <a class="ms-auto btn btn-sm btn-secondary" href="{{ route('admin.user.index') }}">{{ __('messages.headline.index') }}</a>
+        <a class="btn btn-sm btn-warning" href="{{ route('admin.user.edit', $user) }}">{{ __('messages.headline.edit') }}</a>
       </div>
     @endslot
 
-    @include('admin.users._partials._show')
+    @include('admin.user._partials._show')
 
     @slot('footer')
       <div class="d-flex justify-content-between align-items-center ">
-        <x-form action="{{ route('admin.users.destroy', $user) }}" method="DELETE">
-          <button type="button" class="btn-destroy btn btn-sm btn-danger" href="{{ route('admin.users.destroy', $user) }}">{{ __('messages.headline.destroy') }}</button>
+        <x-form action="{{ route('admin.user.destroy', $user) }}" method="DELETE">
+          <button type="button" class="btn-destroy btn btn-sm btn-danger" href="{{ route('admin.user.destroy', $user) }}">{{ __('messages.headline.destroy') }}</button>
         </x-form>
       </div>
     @endslot

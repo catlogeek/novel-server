@@ -10,7 +10,7 @@
     @slot('header')
       <div class="d-flex align-items-center ">
         <span class="text-white">{{ __('messages.headline.index') }}</span>
-        <a class="ms-auto btn btn-sm btn-primary" href="{{ route('admin.users.create') }}">{{ __('messages.headline.create') }}</a>
+        <a class="ms-auto btn btn-sm btn-primary" href="{{ route('admin.user.create') }}">{{ __('messages.headline.create') }}</a>
       </div>
     @endslot
 
@@ -40,9 +40,9 @@
             <td>{{ $item->created_at }}</td>
             <td>{{ $item->updated_at }}</td>
             <td>
-              <a class="btn btn-sm btn-info" href="{{ route('admin.users.show', $item) }}">{{ __('messages.headline.show') }}</a>
-              {{-- <a class="btn btn-sm btn-warning" href="{{ route('admin.users.edit', $item) }}">{{ __('messages.headline.edit') }}</a>
-              <a class="btn btn-sm btn-danger" href="{{ route('admin.users.destroy', $item) }}">{{ __('messages.headline.destroy') }}</a> --}}
+              <a class="btn btn-sm btn-info" href="{{ route('admin.user.show', $item) }}">{{ __('messages.headline.show') }}</a>
+              {{-- <a class="btn btn-sm btn-warning" href="{{ route('admin.user.edit', $item) }}">{{ __('messages.headline.edit') }}</a>
+              <a class="btn btn-sm btn-danger" href="{{ route('admin.user.destroy', $item) }}">{{ __('messages.headline.destroy') }}</a> --}}
             </td>
           </tr>
         @endforeach
