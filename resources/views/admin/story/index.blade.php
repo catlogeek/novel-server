@@ -25,6 +25,10 @@
           <x-form-select label="ジャンル" name="Genre" :options="\App\Enums\Genre::toCollection()" :default="$request->query('Genre')" class="select2" placeholder="ジャンルを選択">
           </x-form-select>
         </div>
+        <div class="col-3">
+          <x-form-select label="ステータス" name="Status" :options="\App\Enums\Status::toCollection()" :default="$request->query('Status')" class="select2" placeholder="ステータスを選択">
+          </x-form-select>
+        </div>
       </div>
 
       @slot('footer')

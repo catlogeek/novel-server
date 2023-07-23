@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use App\Enums\Genre;
+use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -22,6 +23,10 @@ class StorySearchRequest extends FormRequest
             'Genre' => [
                 'nullable',
                 Rule::in(Genre::toCollection()->keys()),
+            ],
+            'Status' => [
+                'nullable',
+                Rule::in(Status::toCollection()->keys()),
             ],
         ];
     }

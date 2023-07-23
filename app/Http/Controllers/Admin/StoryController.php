@@ -30,6 +30,10 @@ class StoryController extends Controller
                 @$request->safe(['Genre'])['Genre'],
                 fn (Builder|Story $q, int $v) => $q->where('Genre', $v)
             )
+            ->when(
+                @$request->safe(['Status'])['Status'],
+                fn (Builder|Story $q, int $v) => $q->where('Status', $v)
+            )
             ->latest('updated_at')
             ->paginate(self::ITEMS_PER_PAGE);
 
