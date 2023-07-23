@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
     {
         $items = User::query()
-            ->latest()
+            ->latest('updated_at')
             ->paginate(self::ITEMS_PER_PAGE);
 
         return view('admin.users.index', [
@@ -45,6 +45,9 @@ class UserController extends Controller
         /** @var User */
         $user = DB::transaction(function () use ($request) {
             $params = $request->validated();
+
+            assert(array_key_exists('password', $params));
+            $params['password'] = bcrypt($params['password']);
 
             /** @var User */
             $user = User::create($params);
