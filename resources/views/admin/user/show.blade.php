@@ -24,8 +24,8 @@
         </x-form>
 
         <a class="ms-auto btn btn-sm btn-secondary" href="{{ route('admin.story.index', ['user_id' => $user->id]) }}">@lang('messages.headline.story')</a>
-        <a class="btn btn-sm btn-secondary" href="{{-- route('admin.note.index', ['user_id' => $user->id]) --}}">@lang('messages.headline.note')</a>
-        <a class="btn btn-sm btn-secondary" href="{{-- route('admin.review.index', ['user_id' => $user->id]) --}}">@lang('messages.headline.review')</a>
+        <a class="btn btn-sm btn-secondary" href="{{ route('admin.note.index', ['user_id' => $user->id]) }}">@lang('messages.headline.note')</a>
+        <a class="btn btn-sm btn-secondary" href="{{ route('admin.review.index', ['user_id' => $user->id]) }}">@lang('messages.headline.review')</a>
       </div>
     @endslot
   </x-admin.card-component>
