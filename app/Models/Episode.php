@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comment
  * @property-read \App\Models\Story $story
  * @method static \Database\Factories\EpisodeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Episode newModelQuery()
@@ -52,7 +52,7 @@ class Episode extends Model
         return $this->belongsTo(Story::class);
     }
 
-    public function comments(): HasMany
+    public function comment(): HasMany
     {
         return $this->hasMany(Comment::class);
     }

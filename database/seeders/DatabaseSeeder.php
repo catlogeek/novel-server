@@ -21,19 +21,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            // 必ず最初
             UserSeeder::class,
-
-            // Userに紐づく
             StorySeeder::class,
-            // NoteSeeder::class,
-
-            // Storyに紐づく
-            // EpisodeSeeder::class,
-            // ReviewSeeder::class,
-
-            // Episodeに紐づく
-            // CommentSeeder::class,
         ]);
     }
 }

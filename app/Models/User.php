@@ -27,8 +27,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Note> $notes
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Story> $stories
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Note> $note
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Story> $story
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -74,12 +74,12 @@ class User extends Authenticatable
         'Status' => Status::class,
     ];
 
-    public function stories(): HasMany
+    public function story(): HasMany
     {
         return $this->hasMany(Story::class);
     }
 
-    public function notes(): HasMany
+    public function note(): HasMany
     {
         return $this->hasMany(Note::class);
     }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Development;
 
+use App\Models\Note;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,8 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(300)->create();
+        User::factory(300)
+            ->has(Note::factory(5))
+            ->create();
     }
 }

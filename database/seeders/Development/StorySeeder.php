@@ -21,9 +21,9 @@ class StorySeeder extends Seeder
 
         Story::factory(500)
             ->recycle($users)
-            // ->has(Episode::factory(10))
+            ->has(Episode::factory(10))
             ->has(StoryTag::factory(5))
-            // ->has(Review::factory(5))
+            ->has(Review::factory(5))
             ->create();
     }
 }
