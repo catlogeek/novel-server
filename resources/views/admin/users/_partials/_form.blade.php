@@ -26,8 +26,7 @@
   <x-form-group class="mb-3">
     <x-form-input label="パスワード" name="password">
       @slot('help')
-        <small class="d-block mt-1">使用可能文字：半角英数字、<code class="d-inline p-1 bg-dark text-white">-</code>(半角ハイフン)、<code class="d-inline p-1 bg-dark text-white">_</code>(半角アンダーバー)</small>
-        <small class="d-block mt-1">文字数：8文字以上</small>
+        <small class="d-block mt-1">※半角英数字記号、8文字以上</small>
       @endslot
     </x-form-input>
   </x-form-group>
