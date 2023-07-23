@@ -1,8 +1,8 @@
-@props(['bodyClass' => ''])
+@props(['bodyClass' => '', 'headerClass' => ''])
 
 <div class="card">
   @if (@$header)
-    <div class="card-header">
+    <div class="card-header {{ $headerClass }}">
       {{ $header }}
     </div>
   @endif

@@ -4,10 +4,10 @@
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800">{{ __('messages.headline.users') }}</h1>
 
-  <x-admin.card-component :label="__('messages.headline.index')" bodyClass="p-0">
+  <x-admin.card-component bodyClass="p-0" headerClass="bg-secondary">
     @slot('header')
       <div class="d-flex align-items-center ">
-        <span>{{ __('messages.headline.index') }}</span>
+        <span class="text-white">{{ __('messages.headline.index') }}</span>
         <a class="ms-auto btn btn-sm btn-primary" href="{{ route('admin.users.create') }}">{{ __('messages.headline.create') }}</a>
       </div>
     @endslot
