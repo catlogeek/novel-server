@@ -21,7 +21,7 @@ class StoryFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'title' => fake()->realTextBetween(10, 100),
+            'title' => fake()->realText(fake()->numberBetween(10, 50)),
             'Genre' => fake()->randomElement(Genre::cases()),
             'catchphrase' => fake()->realText(35),
             'introduction' => fake()->realText(),

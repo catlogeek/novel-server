@@ -6,7 +6,7 @@
 
   <x-admin.alerts />
 
-  <x-admin.card-component bodyClass="p-0" headerClass="bg-secondary">
+  <x-admin.card-component bodyClass="p-0 table-responsive" headerClass="bg-secondary">
     @slot('header')
       <div class="d-flex align-items-center ">
         <span class="text-white">{{ __('messages.headline.index') }}</span>
@@ -41,8 +41,6 @@
             <td>{{ $item->updated_at }}</td>
             <td>
               <a class="btn btn-sm btn-info" href="{{ route('admin.user.show', $item) }}">{{ __('messages.headline.show') }}</a>
-              {{-- <a class="btn btn-sm btn-warning" href="{{ route('admin.user.edit', $item) }}">{{ __('messages.headline.edit') }}</a>
-              <a class="btn btn-sm btn-danger" href="{{ route('admin.user.destroy', $item) }}">{{ __('messages.headline.destroy') }}</a> --}}
             </td>
           </tr>
         @endforeach
