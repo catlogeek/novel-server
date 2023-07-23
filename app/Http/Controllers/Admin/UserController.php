@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
+use App\Http\Requests\Admin\UserSearchRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,9 +15,17 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+    public function index(UserSearchRequest $request): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
     {
         $items = User::query()
+            ->when(
+                @$request->safe(['id'])['id'],
+                fn (Builder|User $q, string $v) => $q->where('id', $v)
+            )
+            ->when(
+                @$request->safe(['Status'])['Status'],
+                fn (Builder|User $q, int $v) => $q->where('Status', $v)
+            )
             ->latest('updated_at')
             ->paginate(self::ITEMS_PER_PAGE);
 

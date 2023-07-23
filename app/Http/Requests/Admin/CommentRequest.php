@@ -6,14 +6,17 @@ use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoryRequest extends FormRequest
+class CommentRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
             'Status' => [
                 'required',
-                Rule::in(Status::toCollection()->keys()),
+                Rule::in([
+                    Status::Enable->value,
+                    Status::Ban->value,
+                ]),
             ],
         ];
     }

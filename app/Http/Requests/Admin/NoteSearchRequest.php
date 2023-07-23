@@ -6,22 +6,23 @@ use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoryRequest extends FormRequest
+class NoteSearchRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
+            'id' => [
+                'nullable',
+                'uuid',
+            ],
+            'user_id' => [
+                'nullable',
+                'uuid',
+            ],
             'Status' => [
-                'required',
+                'nullable',
                 Rule::in(Status::toCollection()->keys()),
             ],
-        ];
-    }
-
-    public function attributes(): array
-    {
-        return [
-            'Status' => 'ステータス',
         ];
     }
 }

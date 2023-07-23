@@ -6,7 +6,7 @@ use App\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoryRequest extends FormRequest
+class EpisodeRequest extends FormRequest
 {
     public function rules(): array
     {

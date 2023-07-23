@@ -30,9 +30,33 @@
   </li>
 
   <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.note.index') }}">
+      <i class="fas fa-clipboard"></i>
+      <span>@lang('messages.headline.note')</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.review.index') }}">
+      <i class="fas fa-star"></i>
+      <span>@lang('messages.headline.review')</span></a>
+  </li>
+
+  <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.story.index') }}">
       <i class="fas fa-book"></i>
       <span>@lang('messages.headline.story')</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.episode.index') }}">
+      <i class="fas fa-file-alt"></i>
+      <span>@lang('messages.headline.episode')</span></a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.comment.index') }}">
+      <i class="fas fa-comments"></i>
+      <span>@lang('messages.headline.comment')</span></a>
   </li>
 
 
