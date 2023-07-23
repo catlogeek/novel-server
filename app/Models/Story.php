@@ -24,8 +24,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Episode> $episodes
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Review> $reviews
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Episode> $episode
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Review> $review
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StoryTag> $storyTag
  * @property-read \App\Models\User $user
  * @method static \Database\Factories\StoryFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Story newModelQuery()
@@ -53,6 +54,7 @@ class Story extends Model
 
     protected $with = [
         'user',
+        'storyTag',
     ];
 
     public function user(): BelongsTo
@@ -60,12 +62,17 @@ class Story extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function episodes(): HasMany
+    public function storyTag(): HasMany
+    {
+        return $this->hasMany(StoryTag::class);
+    }
+
+    public function episode(): HasMany
     {
         return $this->hasMany(Episode::class);
     }
 
-    public function reviews(): HasMany
+    public function review(): HasMany
     {
         return $this->hasMany(Review::class);
     }
