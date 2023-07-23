@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignIdFor(Story::class)->constrained()->cascadeOnDelete();
 
-            $table->string('text')->index(algorithm: 'gin')->comment('タグ');
+            $table->string('text')->index()->comment('タグ');
             $table->bigInteger('order')->default(0)->comment('ソート順');
 
             $table->timestamps();
