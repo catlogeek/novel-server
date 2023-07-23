@@ -42,6 +42,8 @@
             <td>
               <a class="btn btn-sm btn-info" href="{{ route('admin.user.show', $item) }}">{{ __('messages.headline.show') }}</a>
               <a class="btn btn-sm btn-secondary" href="{{ route('admin.story.index', ['user_id' => $item->id]) }}">{{ __('messages.headline.story') }}</a>
+              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.note.index', ['user_id' => $item->id]) --}}">{{ __('messages.headline.note') }}</a>
+              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.review.index', ['user_id' => $item->id]) --}}">{{ __('messages.headline.review') }}</a>
             </td>
           </tr>
         @endforeach

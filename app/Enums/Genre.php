@@ -2,8 +2,12 @@
 
 namespace App\Enums;
 
+use App\Enums\Traits\CollectionTrait;
+
 enum Genre: int
 {
+    use CollectionTrait;
+
     case HighFantasy = 1;
     case LowFantasy = 2;
     case ScienceFiction = 3;
@@ -16,7 +20,7 @@ enum Genre: int
     case History = 10;
     case Criticism = 11;
     case Others = 12;
-    case FanFiction = 99;
+    // case FanFiction = 99;
 
     public function display(): string
     {
@@ -33,7 +37,7 @@ enum Genre: int
             self::History => '歴史・時代・伝奇',
             self::Criticism => '創作論・評論',
             self::Others => '詩・童話・その他',
-            self::FanFiction => '二次創作',
+            // self::FanFiction => '二次創作',
         };
     }
 }

@@ -1,4 +1,4 @@
-@if ($user->id)
+{{-- @if ($user->id)
   <x-form-group class="mb-3">
     <x-form-input label="ID" name="id" value="{{ $user->id }}" readonly>
     </x-form-input>
@@ -49,4 +49,4 @@
     <x-form-input label="最終更新日" name="updated_at" value="{{ $user->updated_at }}" readonly>
     </x-form-input>
   </x-form-group>
-@endif
+@endif --}}

@@ -14,8 +14,13 @@ return [
         'show' => '詳細',
         'destroy' => '削除',
 
+        'search' => '検索',
+
         'user' => 'ユーザ管理',
         'story' => '作品管理',
         'episode' => 'エピソード管理',
+        'review' => 'レビュー管理',
+        'note' => 'ノート管理',
+        'comment' => 'コメント管理',
     ],
 ];

@@ -18,10 +18,14 @@
     @include('admin.user._partials._show')
 
     @slot('footer')
-      <div class="d-flex justify-content-between align-items-center ">
+      <div class="d-flex align-items-center gap-2">
         <x-form action="{{ route('admin.user.destroy', $user) }}" method="DELETE">
           <button type="button" class="btn-destroy btn btn-sm btn-danger" href="{{ route('admin.user.destroy', $user) }}">{{ __('messages.headline.destroy') }}</button>
         </x-form>
+
+        <a class="ms-auto btn btn-sm btn-secondary" href="{{ route('admin.story.index', ['user_id' => $user->id]) }}">{{ __('messages.headline.story') }}</a>
+        <a class="btn btn-sm btn-secondary" href="{{-- route('admin.note.index', ['user_id' => $user->id]) --}}">{{ __('messages.headline.note') }}</a>
+        <a class="btn btn-sm btn-secondary" href="{{-- route('admin.review.index', ['user_id' => $user->id]) --}}">{{ __('messages.headline.review') }}</a>
       </div>
     @endslot
   </x-admin.card-component>

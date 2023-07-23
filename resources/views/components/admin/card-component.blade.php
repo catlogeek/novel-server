@@ -1,6 +1,6 @@
 @props(['bodyClass' => '', 'headerClass' => ''])
 
-<div class="card">
+<div {{ $attributes->merge(['class' => 'card']) }}>
   @if (@$header)
     <div class="card-header {{ $headerClass }}">
       {{ $header }}
