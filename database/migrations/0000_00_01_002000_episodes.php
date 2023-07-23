@@ -19,7 +19,16 @@ return new class extends Migration
             $table->text('title')->comment('タイトル');
             $table->text('body')->comment('本文');
 
+            $table->unsignedSmallInteger('Status')->comment('ステータス');
+            $table->bigInteger('order')->comment('ソート順');
+
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index([
+                'story_id',
+                'order',
+            ]);
         });
     }
 

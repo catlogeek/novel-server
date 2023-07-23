@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Status;
 use App\Models\Story;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,6 +24,7 @@ class ReviewFactory extends Factory
             'story_id' => Story::factory(),
             'title' => fake()->realTextBetween(10, 100),
             'body' => fake()->realTextBetween(300, 3000),
+            'Status' => Status::Enable,
         ];
     }
 }

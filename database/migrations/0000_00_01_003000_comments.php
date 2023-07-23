@@ -20,7 +20,10 @@ return new class extends Migration
 
             $table->text('body')->comment('本文');
 
+            $table->unsignedSmallInteger('Status')->comment('ステータス');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

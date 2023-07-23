@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Status;
 use App\Models\Episode;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,6 +23,7 @@ class CommentFactory extends Factory
             'user_id' => User::factory(),
             'episode_id' => Episode::factory(),
             'body' => fake()->realTextBetween(50, 500),
+            'Status' => Status::Enable,
         ];
     }
 }

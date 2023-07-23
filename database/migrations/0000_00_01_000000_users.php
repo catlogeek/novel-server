@@ -11,13 +11,18 @@ return new class() extends Migration {
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->text('name');
-            $table->text('email')->unique(); // TODO: citext
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->uuid('id')->primary()->comment('ID');
+
+            $table->string('name')->comment('ユーザ名');
+            $table->string('email', 512)->unique()->comment('メールアドレス'); // TODO: citext
+            $table->string('password')->comment('パスワード');
+
+            $table->unsignedSmallInteger('Status')->comment('ステータス');
+            $table->timestamp('email_verified_at')->nullable()->comment('メールアドレス認証');
             $table->rememberToken();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

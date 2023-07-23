@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\Genre;
+use App\Enums\Status;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,6 +25,7 @@ class StoryFactory extends Factory
             'Genre' => fake()->randomElement(Genre::cases()),
             'catchphrase' => fake()->realText(35),
             'introduction' => fake()->realText(),
+            'Status' => Status::Enable,
         ];
     }
 }
