@@ -5,21 +5,22 @@ namespace App\Http\Requests\Admin;
 use App\Enums\Status;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rule;
 
-/**
- * @property-read User|null $user
- */
 class UserRequest extends FormRequest
 {
     public function rules(): array
     {
-        $email_unique = Rule::unique(User::class, 'email');
-        if (!is_null($this->user)) {
-            $email_unique->ignoreModel($this->user, 'id');
-        }
+        /** @var ?User */
+        $user = Request::route('user', null);
 
-        if (is_null($this->user)) {
+        $email_unique = Rule::unique(User::class, 'email');
+        $password_rules = [
+            'exclude',
+        ];
+
+        if (is_null($user)) {
             $password_rules = [
                 'required',
                 'string',
@@ -27,7 +28,7 @@ class UserRequest extends FormRequest
                 'min:8',
             ];
         } else {
-            $password_rules = ['exclude'];
+            $email_unique->ignore($user->id, 'id');
         }
 
         $rules = [
