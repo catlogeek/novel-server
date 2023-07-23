@@ -6,7 +6,7 @@
 
 @section('contents')
   <!-- Page Heading -->
-  <h1 class="h3 mb-4 text-gray-800">{{ __('messages.headline.story') }}</h1>
+  <h1 class="h3 mb-4 text-gray-800">@lang('messages.headline.story')</h1>
 
   <x-admin.alerts />
 
@@ -29,7 +29,7 @@
 
       @slot('footer')
         <div class="d-flex justify-content-end align-items-center gap-2">
-          <button class="btn btn-sm btn-secondary">{{ __('messages.headline.search') }}</button>
+          <button class="btn btn-sm btn-secondary">@lang('messages.headline.search')</button>
         </div>
       @endslot
     </x-admin.card-component>
@@ -38,7 +38,7 @@
   <x-admin.card-component bodyClass="p-0 table-responsive" headerClass="bg-secondary">
     @slot('header')
       <div class="d-flex align-items-center ">
-        <span class="text-white">{{ __('messages.headline.index') }}</span>
+        <span class="text-white">@lang('messages.headline.index')</span>
       </div>
     @endslot
 
@@ -65,9 +65,9 @@
             </td>
             <td>{{ $item->Status->display() }}</td>
             <td class="text-nowrap">
-              <a class="btn btn-sm btn-info" href="{{ route('admin.story.show', $item) }}">{{ __('messages.headline.show') }}</a>
-              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.episode.index', ['story_id' => $item->id]) --}}">{{ __('messages.headline.episode') }}</a>
-              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.review.index', ['story_id' => $item->id]) --}}">{{ __('messages.headline.review') }}</a>
+              <a class="btn btn-sm btn-info" href="{{ route('admin.story.show', $item) }}">@lang('messages.headline.show')</a>
+              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.episode.index', ['story_id' => $item->id]) --}}">@lang('messages.headline.episode')</a>
+              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.review.index', ['story_id' => $item->id]) --}}">@lang('messages.headline.review')</a>
             </td>
           </tr>
         @endforeach

@@ -26,13 +26,13 @@
   <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.user.index') }}">
       <i class="fas fa-users"></i>
-      <span>{{ __('messages.headline.user') }}</span></a>
+      <span>@lang('messages.headline.user')</span></a>
   </li>
 
   <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.story.index') }}">
       <i class="fas fa-book"></i>
-      <span>{{ __('messages.headline.story') }}</span></a>
+      <span>@lang('messages.headline.story')</span></a>
   </li>
 
 
