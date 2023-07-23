@@ -19,8 +19,8 @@
 
     @slot('footer')
       <div class="d-flex justify-content-end align-items-center gap-2">
-        <a class="btn btn-sm btn-secondary" href="{{-- route('admin.episode.index', ['story_id' => $story->id]) --}}">@lang('messages.headline.episode')</a>
-        <a class="btn btn-sm btn-secondary" href="{{-- route('admin.review.index', ['story_id' => $story->id]) --}}">@lang('messages.headline.review')</a>
+        <a class="btn btn-sm btn-secondary" href="{{ route('admin.episode.index', ['story_id' => $story->id]) }}">@lang('messages.headline.episode')</a>
+        <a class="btn btn-sm btn-secondary" href="{{ route('admin.review.index', ['story_id' => $story->id]) }}">@lang('messages.headline.review')</a>
       </div>
     @endslot
 

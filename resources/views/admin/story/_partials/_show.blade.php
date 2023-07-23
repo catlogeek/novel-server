@@ -6,6 +6,11 @@
     </x-form-group>
 
     <x-form-group class="mb-3">
+      <x-form-input label="作者" name="user.name" value="{{ $story->user->name }}" readonly>
+      </x-form-input>
+    </x-form-group>
+
+    <x-form-group class="mb-3">
       <x-form-input label="タイトル" name="title" value="{{ $story->title }}" readonly>
       </x-form-input>
     </x-form-group>
