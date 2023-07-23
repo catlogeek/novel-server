@@ -1,3 +1,13 @@
 * {
     box-sizing: border-box;
 }
+
+@media (min-width: 768px) {
+    .sidebar.toggled {
+        width: 8rem !important;
+    }
+
+    .sidebar.toggled .nav-item .nav-link {
+        width: 100% !important;
+    }
+}
