@@ -50,6 +50,10 @@ class User extends Authenticatable
         'id',
     ];
 
+    protected $attributes = [
+        'Status' => Status::Enable,
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *

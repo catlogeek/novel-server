@@ -4,21 +4,23 @@
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800">{{ __('messages.headline.users') }}</h1>
 
-  <x-admin.card-component bodyClass="p-0" headerClass="bg-warning">
-    @slot('header')
-      <div class="d-flex align-items-center gap-2">
-        <span class="text-white">{{ __('messages.headline.edit') }}</span>
-        <a class="ms-auto btn btn-sm btn-secondary" href="{{ route('admin.users.index') }}">{{ __('messages.headline.index') }}</a>
-        <a class="btn btn-sm btn-info" href="{{ route('admin.users.show', $user) }}">{{ __('messages.headline.show') }}</a>
-      </div>
-    @endslot
+  <x-form action="{{ route('admin.users.update', $user) }}" method="PUT">
+    <x-admin.card-component headerClass="bg-warning">
+      @slot('header')
+        <div class="d-flex align-items-center gap-2">
+          <span class="text-white">{{ __('messages.headline.edit') }}</span>
+          <a class="ms-auto btn btn-sm btn-secondary" href="{{ route('admin.users.index') }}">{{ __('messages.headline.index') }}</a>
+          <a class="btn btn-sm btn-info" href="{{ route('admin.users.show', $user) }}">{{ __('messages.headline.show') }}</a>
+        </div>
+      @endslot
 
-    @slot('footer')
-      {{-- FIXME: submit --}}
-      {{-- <div class="d-flex justify-content-between align-items-center ">
-        <a class="btn btn-sm btn-danger" href="{{ route('admin.users.destroy', $user) }}">{{ __('messages.headline.destroy') }}</a>
-        <a class="btn btn-sm btn-warning" href="{{ route('admin.users.edit', $user) }}">{{ __('messages.headline.edit') }}</a>
-      </div> --}}
-    @endslot
-  </x-admin.card-component>
+      @include('admin.users._partials._form')
+
+      @slot('footer')
+        <div class="d-flex justify-content-end align-items-center ">
+          <button class="btn btn-sm btn-warning">{{ __('messages.headline.edit') }}</button>
+        </div>
+      @endslot
+    </x-admin.card-component>
+  </x-form>
 @endsection

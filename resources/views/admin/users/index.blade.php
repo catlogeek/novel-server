@@ -20,7 +20,7 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">名前</th>
+          <th scope="col">ユーザ名</th>
           <th scope="col">メールアドレス</th>
           <th scope="col">ステータス</th>
           <th scope="col">登録日</th>

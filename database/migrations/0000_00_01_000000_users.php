@@ -14,7 +14,7 @@ return new class() extends Migration {
             $table->uuid('id')->primary()->comment('ID');
 
             $table->string('name')->comment('ユーザ名');
-            $table->string('email', 512)->unique()->comment('メールアドレス'); // TODO: citext
+            $table->string('email')->unique()->comment('メールアドレス'); // TODO: citext
             $table->string('password')->comment('パスワード');
 
             $table->unsignedSmallInteger('Status')->comment('ステータス');

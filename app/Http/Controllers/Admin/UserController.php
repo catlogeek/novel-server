@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,12 +40,11 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function store(UserRequest $request): \Illuminate\Http\RedirectResponse
     {
         /** @var User */
-        $user = DB::transaction(function () {
-            // FIXME
-            $params = [];
+        $user = DB::transaction(function () use ($request) {
+            $params = $request->validated();
 
             /** @var User */
             $user = User::create($params);
@@ -70,7 +70,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+    public function edit(Request $request, User $user): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
     {
         return view('admin.users.edit', [
             'user' => $user,
@@ -80,8 +80,17 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user): \Illuminate\Http\RedirectResponse
+    public function update(UserRequest $request, User $user): \Illuminate\Http\RedirectResponse
     {
+        /** @var User */
+        $user = DB::transaction(function () use ($request, $user) {
+            $params = $request->validated();
+
+            $user->update($params);
+
+            return $user;
+        });
+
         return redirect()
             ->route('admin.users.show', $user)
             ->with('success', __('messages.success.update'));
