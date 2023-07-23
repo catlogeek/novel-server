@@ -2,7 +2,7 @@
 
 @section('contents')
   <!-- Page Heading -->
-  <h1 class="h3 mb-4 text-gray-800">{{ __('messages.headline.users') }}</h1>
+  <h1 class="h3 mb-4 text-gray-800">{{ __('messages.headline.user') }}</h1>
 
   <x-form action="{{ route('admin.user.store') }}" method="POST">
     <x-admin.card-component headerClass="bg-primary">
