@@ -57,4 +57,12 @@
 
         return false;
     });
+
+    $(document).on('click', 'button.btn-destroy', function () {
+        if (window.confirm('本当に削除しますか？')) {
+            $(this).parent('form').trigger('submit');
+        }
+
+        return false;
+    });
 })(jQuery); // End of use strict

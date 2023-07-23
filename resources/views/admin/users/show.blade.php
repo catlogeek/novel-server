@@ -19,8 +19,9 @@
 
     @slot('footer')
       <div class="d-flex justify-content-between align-items-center ">
-        <a class="btn btn-sm btn-danger" href="{{ route('admin.users.destroy', $user) }}">{{ __('messages.headline.destroy') }}</a>
-        <a class="btn btn-sm btn-warning" href="{{ route('admin.users.edit', $user) }}">{{ __('messages.headline.edit') }}</a>
+        <x-form action="{{ route('admin.users.destroy', $user) }}" method="DELETE">
+          <button type="button" class="btn-destroy btn btn-sm btn-danger" href="{{ route('admin.users.destroy', $user) }}">{{ __('messages.headline.destroy') }}</button>
+        </x-form>
       </div>
     @endslot
   </x-admin.card-component>
