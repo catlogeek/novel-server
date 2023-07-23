@@ -32,7 +32,7 @@
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content">
+      <div id="content" class="pb-4">
 
         <x-admin.navbar></x-admin.navbar>
 
@@ -63,7 +63,7 @@
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
-    <span class="material-symbols-outlined">arrow_upward</span>
+    <i class="fas fa-angle-up"></i>
   </a>
 
   <!-- Logout Modal-->

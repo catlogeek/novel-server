@@ -10,4 +10,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests;
     use ValidatesRequests;
+
+    public const ITEMS_PER_PAGE = 50;
 }
