@@ -41,6 +41,7 @@
             <td>{{ $item->updated_at }}</td>
             <td>
               <a class="btn btn-sm btn-info" href="{{ route('admin.user.show', $item) }}">{{ __('messages.headline.show') }}</a>
+              <a class="btn btn-sm btn-secondary" href="{{ route('admin.story.index', ['user_id' => $item->id]) }}">{{ __('messages.headline.story') }}</a>
             </td>
           </tr>
         @endforeach

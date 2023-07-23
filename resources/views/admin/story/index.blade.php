@@ -43,7 +43,7 @@
             <td class="text-nowrap">{{ $item->updated_at }}</td>
             <td class="text-nowrap">
               <a class="btn btn-sm btn-info" href="{{ route('admin.story.show', $item) }}">{{ __('messages.headline.show') }}</a>
-              <a class="btn btn-sm btn-link" href="#">{{ __('messages.headline.episode') }}</a>
+              <a class="btn btn-sm btn-secondary" href="#">{{ __('messages.headline.episode') }}</a>
             </td>
           </tr>
         @endforeach
