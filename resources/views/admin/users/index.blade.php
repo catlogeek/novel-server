@@ -23,7 +23,7 @@
           <th scope="col">名前</th>
           <th scope="col">メールアドレス</th>
           <th scope="col">登録日</th>
-          <th scope="col">更新日</th>
+          <th scope="col">最終更新日</th>
           <th scope="col">操作</th>
         </tr>
       </thead>
@@ -33,8 +33,8 @@
             <td scope="row"><code>{{ $item->id }}</code></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->email }}</td>
-            <td>{{ $item->created_at->format('Y-m-d H:i:s') }}</td>
-            <td>{{ $item->updated_at->format('Y-m-d H:i:s') }}</td>
+            <td>{{ $item->created_at }}</td>
+            <td>{{ $item->updated_at }}</td>
             <td>
               <a class="btn btn-sm btn-info" href="{{ route('admin.users.show', $item) }}">{{ __('messages.headline.show') }}</a>
               {{-- <a class="btn btn-sm btn-warning" href="{{ route('admin.users.edit', $item) }}">{{ __('messages.headline.edit') }}</a>
