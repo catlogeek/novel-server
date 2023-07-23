@@ -22,6 +22,11 @@
 </x-form-input-group>
 
 <x-form-group class="mb-3">
+  <x-form-input label="ステータス" name="Status" value="{{ $user->Status->display() }}" readonly>
+  </x-form-input>
+</x-form-group>
+
+<x-form-group class="mb-3">
   <x-form-input label="登録日" name="created_at" value="{{ $user->created_at }}" readonly>
   </x-form-input>
 </x-form-group>

@@ -22,6 +22,7 @@
           <th scope="col">ID</th>
           <th scope="col">名前</th>
           <th scope="col">メールアドレス</th>
+          <th scope="col">ステータス</th>
           <th scope="col">登録日</th>
           <th scope="col">最終更新日</th>
           <th scope="col">操作</th>
@@ -33,6 +34,7 @@
             <td scope="row"><code>{{ $item->id }}</code></td>
             <td>{{ $item->name }}</td>
             <td>{{ $item->email }}</td>
+            <td>{{ $item->Status->display() }}</td>
             <td>{{ $item->created_at }}</td>
             <td>{{ $item->updated_at }}</td>
             <td>
