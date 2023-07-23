@@ -44,6 +44,10 @@ class Note extends Model
         'Status' => Status::class,
     ];
 
+    protected $with = [
+        'user',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

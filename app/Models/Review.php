@@ -46,6 +46,11 @@ class Review extends Model
         'Status' => Status::class,
     ];
 
+    protected $with = [
+        'story',
+        'user',
+    ];
+
     public function story(): BelongsTo
     {
         return $this->belongsTo(Story::class);

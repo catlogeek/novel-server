@@ -45,6 +45,11 @@ class Comment extends Model
         'Status' => Status::class,
     ];
 
+    protected $with = [
+        'episode',
+        'user',
+    ];
+
     public function episode(): BelongsTo
     {
         return $this->belongsTo(Episode::class);
