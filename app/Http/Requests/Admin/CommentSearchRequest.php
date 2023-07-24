@@ -25,7 +25,10 @@ class CommentSearchRequest extends FormRequest
             ],
             'Status' => [
                 'nullable',
-                Rule::in(Status::toCollection()->keys()),
+                Rule::in([
+                    Status::Enable->value,
+                    Status::Ban->value,
+                ]),
             ],
         ];
     }
