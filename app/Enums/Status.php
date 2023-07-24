@@ -3,6 +3,7 @@
 namespace App\Enums;
 
 use App\Enums\Traits\CollectionTrait;
+use Illuminate\Support\Collection;
 
 enum Status: int
 {
@@ -19,5 +20,16 @@ enum Status: int
             self::Enable => '有効/公開',
             self::Ban => 'BAN',
         };
+    }
+
+    /**
+     * @return Collection<array-key, mixed>
+     */
+    public static function toEnableBanCollection()
+    {
+        return new Collection([
+            self::Enable->value => self::Enable->display(),
+            self::Ban->value => self::Ban->display(),
+        ]);
     }
 }
