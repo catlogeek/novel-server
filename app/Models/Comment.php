@@ -47,6 +47,7 @@ class Comment extends Model
 
     protected $with = [
         'episode',
+        'episode.story',
         'user',
     ];
 
