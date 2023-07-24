@@ -1,12 +1,12 @@
 @extends('admin._layouts.default')
 
 @section('scripts')
-  @vite('resources/js/admin.story.index.js')
+  @vite('resources/js/admin.comment.index.js')
 @endsection
 
 @section('contents')
   <!-- Page Heading -->
-  <h1 class="h3 mb-4 text-gray-800">@lang('messages.headline.story')</h1>
+  <h1 class="h3 mb-4 text-gray-800">@lang('messages.headline.comment')</h1>
 
   <x-admin.alerts />
 
@@ -18,15 +18,15 @@
           </x-form-input>
         </div>
         <div class="col-md-6 col-lg-3">
+          <x-form-input label="エピソードID" name="episode_id" :value="$request->query('episode_id')">
+          </x-form-input>
+        </div>
+        <div class="col-md-6 col-lg-3">
           <x-form-input label="ユーザID" name="user_id" :value="$request->query('user_id')">
           </x-form-input>
         </div>
         <div class="col-md-6 col-lg-3">
-          <x-form-select label="ジャンル" name="Genre" :options="\App\Enums\Genre::toCollection()" :default="$request->query('Genre')" class="select2" placeholder="ジャンルを選択">
-          </x-form-select>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <x-form-select label="ステータス" name="Status" :options="\App\Enums\Status::toCollection()" :default="$request->query('Status')" class="select2" placeholder="ステータスを選択">
+          <x-form-select label="ステータス" name="Status" :options="\App\Enums\Status::toEnableBanCollection()" :default="$request->query('Status')" class="select2" placeholder="ステータスを選択">
           </x-form-select>
         </div>
       </div>
@@ -50,10 +50,10 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">ジャンル</th>
-          <th class="text-nowrap" scope="col">作者</th>
-          <th scope="col">タイトル</th>
+          <th class="text-nowrap" scope="col">投稿者</th>
+          <th scope="col">本文</th>
           <th class="text-nowrap" scope="col">ステータス</th>
+          <th scope="col">登録日</th>
           <th scope="col">操作</th>
         </tr>
       </thead>
@@ -61,17 +61,12 @@
         @foreach ($items as $item)
           <tr>
             <td class="text-nowrap" scope="row"><code>{{ $item->id }}</code></td>
-            <td class="text-nowrap">{{ $item->Genre->display() }}</td>
             <td class="text-nowrap"><a href="{{ route('admin.user.show', $item->user) }}">{{ $item->user->name }}</a></td>
-            <td>
-              {{-- TODO: link to front --}}
-              {{ $item->title }}
-            </td>
-            <td>{{ $item->Status->display() }}</td>
+            <td>{{ $item->body }}</td>
+            <td class="text-nowrap">{{ $item->Status->display() }}</td>
+            <td class="text-nowrap">{{ $item->created_at }}</td>
             <td class="text-nowrap">
-              <a class="btn btn-sm btn-info" href="{{ route('admin.story.show', $item) }}">@lang('messages.headline.show')</a>
-              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.episode.index', ['story_id' => $item->id]) --}}">@lang('messages.headline.episode')</a>
-              <a class="btn btn-sm btn-secondary" href="{{-- route('admin.review.index', ['story_id' => $item->id]) --}}">@lang('messages.headline.review')</a>
+              <a class="btn btn-sm btn-info" href="{{ route('admin.comment.show', $item) }}">@lang('messages.headline.show')</a>
             </td>
           </tr>
         @endforeach
