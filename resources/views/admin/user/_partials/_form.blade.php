@@ -33,10 +33,8 @@
 @endif
 
 <x-form-group label="ステータス" class="mb-3">
-  <x-form-radio name="Status" :label="\App\Enums\Status::Enable->display()" :value="\App\Enums\Status::Enable->value" :checked="\App\Enums\Status::Enable === $user->Status">
-  </x-form-radio>
-  <x-form-radio name="Status" :label="\App\Enums\Status::Ban->display()" :value="\App\Enums\Status::Ban->value" :checked="\App\Enums\Status::Ban === $user->Status">
-  </x-form-radio>
+  <x-form-select name="Status" :options="\App\Enums\Status::toEnableBanCollection()" :default="$user->Status->value">
+  </x-form-select>
 </x-form-group>
 
 @if ($user->id)

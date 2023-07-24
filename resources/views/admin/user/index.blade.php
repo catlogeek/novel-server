@@ -1,10 +1,35 @@
 @extends('admin._layouts.default')
 
+@section('scripts')
+  @vite('resources/js/admin.user.index.js')
+@endsection
+
 @section('contents')
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800">@lang('messages.headline.user')</h1>
 
   <x-admin.alerts />
+
+  <x-form method="GET">
+    <x-admin.card-component class="mb-4">
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <x-form-input label="ID" name="id" :value="$request->query('id')">
+          </x-form-input>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <x-form-select label="ステータス" name="Status" :options="\App\Enums\Status::toEnableBanCollection()" :default="$request->query('Status')" class="select2" placeholder="ステータスを選択">
+          </x-form-select>
+        </div>
+      </div>
+
+      @slot('footer')
+        <div class="d-flex justify-content-end align-items-center gap-2">
+          <button class="btn btn-sm btn-secondary">@lang('messages.headline.search')</button>
+        </div>
+      @endslot
+    </x-admin.card-component>
+  </x-form>
 
   <x-admin.card-component bodyClass="p-0 table-responsive" headerClass="bg-secondary">
     @slot('header')
@@ -13,10 +38,6 @@
         <a class="ms-auto btn btn-sm btn-primary" href="{{ route('admin.user.create') }}">@lang('messages.headline.create')</a>
       </div>
     @endslot
-
-    <div class="p-3">
-      {{ $items->links() }}
-    </div>
 
     <table class="table table-hover mb-0">
       <thead>
@@ -41,9 +62,6 @@
             <td>{{ $item->updated_at }}</td>
             <td>
               <a class="btn btn-sm btn-info" href="{{ route('admin.user.show', $item) }}">@lang('messages.headline.show')</a>
-              <a class="btn btn-sm btn-secondary" href="{{ route('admin.story.index', ['user_id' => $item->id]) }}">@lang('messages.headline.story')</a>
-              <a class="btn btn-sm btn-secondary" href="{{ route('admin.note.index', ['user_id' => $item->id]) }}">@lang('messages.headline.note')</a>
-              <a class="btn btn-sm btn-secondary" href="{{ route('admin.review.index', ['user_id' => $item->id]) }}">@lang('messages.headline.review')</a>
             </td>
           </tr>
         @endforeach
