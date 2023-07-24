@@ -26,10 +26,10 @@
 
   @yield('scripts')
 
-  <title>TODO: TITLE</title>
+  <title>ADMIN</title>
 </head>
 
-<body id="page-top" class="sidebar-toggled">
+<body class="sidebar-toggled">
 
   <!-- Page Wrapper -->
   <div id="wrapper">

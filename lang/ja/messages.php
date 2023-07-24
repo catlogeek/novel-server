@@ -16,6 +16,7 @@ return [
 
         'search' => '検索',
 
+        'top' => 'Dashboard',
         'user' => 'ユーザ管理',
         'story' => '作品管理',
         'episode' => 'エピソード管理',
