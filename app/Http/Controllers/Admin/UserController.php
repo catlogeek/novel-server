@@ -31,6 +31,7 @@ class UserController extends Controller
 
         return view('admin.user.index', [
             'items' => $items,
+            'request' => $request,
         ]);
     }
 
@@ -107,17 +108,5 @@ class UserController extends Controller
         return redirect()
             ->route('admin.user.show', $user)
             ->with('success', __('messages.success.update'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user): \Illuminate\Http\RedirectResponse
-    {
-        $user->delete();
-
-        return redirect()
-            ->route('admin.user.index')
-            ->with('success', __('messages.success.destroy'));
     }
 }
