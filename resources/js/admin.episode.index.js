@@ -6,5 +6,6 @@
         width: '100%',
         allowClear: true,
         placeholder: 'ステータスを選択',
+        minimumResultsForSearch: 10,
     });
 })(jQuery); // End of use strict

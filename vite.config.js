@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/js/admin.note.index.js',
                 'resources/js/admin.comment.index.js',
                 'resources/js/admin.episode.index.js',
+                'resources/js/admin.user.index.js',
             ],
             refresh: true,
         }),
